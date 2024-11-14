@@ -4,7 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Updated CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background-color: white;
+            width: 100%;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: left;
+            color: #0070ba;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .login-btn:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .divider {
+            font-size: 14px;
+            color: #888;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider:before, .divider:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .divider:before {
+            left: 0;
+        }
+
+        .divider:after {
+            right: 0;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .language-selector {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .flag-icon {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #f0f0f0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer a {
+            color: #555;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .loading-spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0070ba;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            display: none;
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
@@ -35,6 +202,25 @@
         <a href="#">Worldwide</a>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            // Show loading spinner and disable login button
+            const spinner = document.getElementById('loading-spinner');
+            const errorMessage = document.getElementById('error-message');
+            const loginButton = document.getElementById('login-btn');
+
+            spinner.style.display = 'block';
+            errorMessage.style.display = 'none';
+            loginButton.disabled = true;
+
+            // Simulate a delay to show the loading spinner
+            setTimeout(function() {
+                // Hide loading spinner and show error message
+                spinner.style.display = 'none';
+                errorMessage.style.display = 'block';
+                loginButton.disabled = false;
+            }, 2000); // Adjust the delay time as needed
+        });
+    </script>
 </body>
 </html>

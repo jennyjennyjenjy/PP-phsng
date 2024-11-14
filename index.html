@@ -9,19 +9,21 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            <img src="paypal logo.webp" alt="PayPal Logo" class="logo">
-            <form>
+            <img src="paypal-logo.png" alt="PayPal Logo" class="logo">
+            <form id="login-form">
                 <input type="text" placeholder="Email or mobile number" class="input-field">
                 <input type="password" placeholder="Password" class="input-field">
                 <a href="#" class="forgot-password">Forgotten password?</a>
-                <button type="submit" class="login-btn">Log In</button>
+                <button type="button" id="login-btn" class="login-btn">Log In</button>
                 <div class="divider">or</div>
                 <button type="button" class="signup-btn">Sign Up</button>
             </form>
             <div class="language-selector">
-                <img src="USA Flag.webp" alt="US Flag" class="flag-icon">
+                <img src="us-flag.png" alt="US Flag" class="flag-icon">
                 <span>English</span> | Français | Español | 中文
             </div>
+            <div id="loading-spinner" class="loading-spinner"></div>
+            <div id="error-message" class="error-message">Error: Invalid login credentials</div>
         </div>
     </div>
 
@@ -32,5 +34,7 @@
         <a href="#">Policy Updates</a> |
         <a href="#">Worldwide</a>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

